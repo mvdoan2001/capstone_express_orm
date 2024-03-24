@@ -19,7 +19,8 @@ uploadRoute.post('', upload.single('image'), async (req, res) => {
         let { file } = req;
         console.log(req.body)
         let { description } = req.body;
-        let { token } = req.headers;
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
         let newImage = {
             image_name: file.originalname,
