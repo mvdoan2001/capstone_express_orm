@@ -33,6 +33,11 @@ export default class images extends Model {
     create_at: {
       type: DataTypes.DATE,
       allowNull: true
+    },
+    isDelete: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      defaultValue: 0
     }
   }, {
     sequelize,

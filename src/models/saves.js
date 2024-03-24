@@ -4,7 +4,7 @@ const { Model, Sequelize } = _sequelize;
 export default class saves extends Model {
   static init(sequelize, DataTypes) {
   return super.init({
-    sav_id: {
+    save_id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -29,6 +29,11 @@ export default class saves extends Model {
     create_at: {
       type: DataTypes.DATE,
       allowNull: true
+    },
+    isSave: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      defaultValue: 0
     }
   }, {
     sequelize,
@@ -40,7 +45,7 @@ export default class saves extends Model {
         unique: true,
         using: "BTREE",
         fields: [
-          { name: "sav_id" },
+          { name: "save_id" },
         ]
       },
       {

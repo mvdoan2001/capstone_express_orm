@@ -21,7 +21,7 @@ const getImages = async (req, res) => {
 const getImageByName = async (req, res) => {
     try {
         let { name } = req.body;
-        let data = model.images.findAll({
+        let data = await model.images.findAll({
             where: {
                 image_name: { [Op.like]: `%${name}%` }
             }
@@ -30,10 +30,10 @@ const getImageByName = async (req, res) => {
             responseApi(res, 200, data, 'Thành công!');
             return;
         }
-        responseApi(res, 200, data, 'Ảnh không tồn tại!');
+        responseApi(res, 200, '', 'Ảnh không tồn tại!');
     } catch (error) {
         console.log(error);
-        responseApi(res, 400, data, 'Xử lý không thành công!');
+        responseApi(res, 400, '', 'Xử lý không thành công!');
     }
 };
 
@@ -56,7 +56,8 @@ const infoOfImage = async (req, res) => {
 
 const delImage = async (req, res) => {
     try {
-        let { token } = req.headers;
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
         let { imageId } = req.params;
         let image = await model.images.findOne({
@@ -66,7 +67,8 @@ const delImage = async (req, res) => {
             }
         });
         if (image) {
-            await model.images.destroy({
+            await model.images.update(
+                { ...image, isDelete: 1 }, {
                 where: {
                     image_id: image.dataValues.image_id
                 }
@@ -96,9 +98,10 @@ const getComment = async (req, res) => {
 
 const saves = async (req, res) => {
     try {
-        let { imageId } = req.params;
-        let { token } = req.headers;
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
+        let { imageId } = req.params;
         let image = await model.images.findOne({
             where: { image_id: imageId }
         });
@@ -110,17 +113,30 @@ const saves = async (req, res) => {
             }
         });
         if (data) {
-            await model.saves.destroy({
-                where: {
-                    image_id: data.dataValues.save_id
-                }
-            })
-            responseApi(res, 200, '', 'Huỷ lưu thành công!')
-            return;
-        };
+            if (data.dataValues.isSave) {
+                await model.saves.update(
+                    { ...data, isSave: 0 }, {
+                    where: {
+                        save_id: data.dataValues.save_id
+                    }
+                })
+                responseApi(res, 200, '', 'Huỷ lưu thành công!')
+                return;
+            }else {
+                await model.saves.update(
+                    { ...data, isSave: 1 }, {
+                    where: {
+                        save_id: data.dataValues.save_id
+                    }
+                })
+                responseApi(res, 200, '', 'Lưu thành công!')
+                return;
+            }
+        }
         await model.saves.create({
             image_id: imageId,
             user_id: userId,
+            isSave: 1,
             create_at: new Date()
         })
         responseApi(res, 200, '', 'Lưu ảnh thành công')
@@ -134,7 +150,8 @@ const postComment = async (req, res) => {
     try {
         let { imageId } = req.params;
         let { content } = req.body;
-        let { token } = req.headers;
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
         let newComment = {
             content: content,
@@ -153,7 +170,8 @@ const putComment = async (req, res) => {
     try {
         let { imageId } = req.params;
         let { content } = req.body;
-        let { token } = req.headers;
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
         let comment = await model.comments.findOne({
             where: {
@@ -166,7 +184,7 @@ const putComment = async (req, res) => {
         }, {
             where: { comment_id: comment.dataValues.comment_id }
         });
-        responseApi(res, 200, '', 'Thành công!')
+        responseApi(res, 200, comment, 'Thành công!')
     } catch (error) {
         responseApi(res, 400, '', 'Xử lý không thành công!')
     }
@@ -175,8 +193,9 @@ const putComment = async (req, res) => {
 const delComment = async (req, res) => {
     try {
         let { imageId } = req.params;
-        let { token } = req.headers;
         let { content } = req.body;
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
         let comment = await model.comments.findOne({
             where: {
@@ -186,7 +205,8 @@ const delComment = async (req, res) => {
             }
         });
         if (comment) {
-            await model.comments.destroy({
+            await model.comments.update(
+                { ...comment, isDelete: 1 }, {
                 where: {
                     comment_id: comment.dataValues.comment_id
                 }

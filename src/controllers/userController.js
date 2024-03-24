@@ -92,8 +92,9 @@ const resetToken = async (req, res) => {
 
 const infoUser = async (req, res) => {
     try {
-        let { token } = req.headers
-        let { userId } = dataToken(token)
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
+        let { userId } = dataToken(token);
         let data = await model.users.findOne({
             where: {
                 user_id: userId
@@ -108,7 +109,8 @@ const infoUser = async (req, res) => {
 const changePassword = async (req, res) => {
     try {
         let { newPassword } = req.body;
-        let { token } = req.headers;
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
         let user = await model.users.findOne({
             where: { user_id: userId }
@@ -136,9 +138,9 @@ const changePassword = async (req, res) => {
 const changeInfo = async (req, res) => {
     try {
         let { userName } = req.body;
-        let { token } = req.headers;
-        let decode = dataToken(token);
-        let { userId } = decode;
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
+        let { userId } = dataToken(token);
         let data = await model.users.findOne({
             where: { user_id: userId }
         });
@@ -175,7 +177,8 @@ const delUser = async (req, res) => {
 
 const listImageSaveByUser = async (req, res) => {
     try {
-        let { token } = req.headers;
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
         let data = await model.saves.findAll({
             where: {
@@ -192,7 +195,8 @@ const listImageSaveByUser = async (req, res) => {
 
 const listImageCreateByUser = async (req, res) => {
     try {
-        let { token } = req.headers;
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
         let data = await model.images.findAll({
             where: {
