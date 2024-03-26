@@ -10,7 +10,8 @@ export const createTokenRef = (data) => jwt.sign(data, '12345', { algorithm: 'HS
 export const checkTokenRef = (token) => jwt.verify(token, '12345', (err, decode) => err);
 
 export const midVerifyToken = (req, res, next) => {
-    let { token } = req.headers;
+    let { authorization } = req.headers;
+    const token = authorization.replace("Bearer ", "");
     let check = checkToken(token);
     if(check == null) {
         next();

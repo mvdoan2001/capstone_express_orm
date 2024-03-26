@@ -184,7 +184,7 @@ const listImageSaveByUser = async (req, res) => {
             where: {
                 user_id: userId
             },
-            include: ['image']
+            include: ['image', 'user']
         });
         responseApi(res, 200, data, 'Thành công!')
     } catch (error) {
@@ -201,7 +201,8 @@ const listImageCreateByUser = async (req, res) => {
         let data = await model.images.findAll({
             where: {
                 user_id: userId
-            }
+            },
+            include: ['user']
         });
         responseApi(res, 200, data, 'Thành công!')
     } catch (error) {
@@ -209,7 +210,6 @@ const listImageCreateByUser = async (req, res) => {
         responseApi(res, 400, '', 'Xử lý không thành công!')
     }
 };
-
 
 export {
     login,
