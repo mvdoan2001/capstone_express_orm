@@ -18,7 +18,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTIzODY2MzA2MywiaWF0IjoxNzExMjM4NjYzLCJleHAiOjE3MTEzMjUwNjN9.zCM59zQaybeMcVDuP613XOQ6P0UXaM4U_SdVQ7JisuI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTM1Njc0ODgwMCwiaWF0IjoxNzExMzU2NzQ4LCJleHAiOjE3MTE0NDMxNDh9.d_rg4UIrmDAY2PqITCC_wAgUIrAKFAu_PHNusSaDSIs",
 									"type": "string"
 								}
 							]
@@ -48,7 +48,8 @@
 									"    pm.response.to.have.status(200);",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -57,7 +58,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"nva@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
+							"raw": "{\r\n    \"email\":\"nvba@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -90,7 +91,8 @@
 									"});",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
@@ -256,7 +258,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTIzODY2MzA2MywiaWF0IjoxNzExMjM4NjYzLCJleHAiOjE3MTEzMjUwNjN9.zCM59zQaybeMcVDuP613XOQ6P0UXaM4U_SdVQ7JisuI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImtleSI6MTcxMTM2MDcwNDk5NiwiaWF0IjoxNzExMzYwNzA1LCJleHAiOjE3MTE0NDcxMDV9.arLyuVoM5qpDbETV9-9TPQmV9pvzfv1QRa1WNFuXtUM",
 									"type": "string"
 								}
 							]
@@ -284,7 +286,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTIzODY2MzA2MywiaWF0IjoxNzExMjM4NjYzLCJleHAiOjE3MTEzMjUwNjN9.zCM59zQaybeMcVDuP613XOQ6P0UXaM4U_SdVQ7JisuI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTM1Mjc3MDA2MSwiaWF0IjoxNzExMzUyNzcwLCJleHAiOjE3MTE0MzkxNzB9.1Xor3NC7v-hqwUZh4glctAY5y3qW__9WoaK921zeMG4",
 									"type": "string"
 								}
 							]
@@ -449,14 +451,14 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/post/image/6/save",
+							"raw": "{{domain}}/post/image/3/save",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"post",
 								"image",
-								"6",
+								"3",
 								"save"
 							]
 						}
