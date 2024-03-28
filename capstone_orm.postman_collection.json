@@ -58,7 +58,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"nvba@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
+							"raw": "{\r\n    \"email\":\"nvba@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -258,7 +258,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImtleSI6MTcxMTM2MDcwNDk5NiwiaWF0IjoxNzExMzYwNzA1LCJleHAiOjE3MTE0NDcxMDV9.arLyuVoM5qpDbETV9-9TPQmV9pvzfv1QRa1WNFuXtUM",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImtleSI6MTcxMTU1MTY5MDIzNywiaWF0IjoxNzExNTUxNjkwLCJleHAiOjE3MTE2MzgwOTB9.-Ty_UyIecJAOLJx7eUJvmP90pzAxgJWuUiYnRAN3mPg",
 									"type": "string"
 								}
 							]
@@ -473,7 +473,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTIzODY2MzA2MywiaWF0IjoxNzExMjM4NjYzLCJleHAiOjE3MTEzMjUwNjN9.zCM59zQaybeMcVDuP613XOQ6P0UXaM4U_SdVQ7JisuI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImtleSI6MTcxMTU2NDY4MTcwMiwiaWF0IjoxNzExNTY0NjgxLCJleHAiOjE3MTE2NTEwODF9.-dEDVTEgUNkfKTO95UNyW66PpWUyxJdiYIjbWVpxz4o",
 									"type": "string"
 								}
 							]
@@ -482,7 +482,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"124\"\r\n}",
+							"raw": "{\r\n    \"content\": \"cac\",\r\n    \"imageId\": \"1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -490,14 +490,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/post/comments/1",
+							"raw": "{{domain}}/post/comments",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"post",
-								"comments",
-								"1"
+								"comments"
 							]
 						}
 					},
@@ -516,7 +515,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"put content\"\r\n}",
+							"raw": "{\r\n    \"content\": \"put content\",\r\n    \"imageId\": \"1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -554,7 +553,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\":\"test\"\r\n}",
+							"raw": "{\r\n    \"content\":\"test\",\r\n    \"imageId\": \"1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -562,14 +561,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/post/comments/1",
+							"raw": "{{domain}}/post/comments",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"post",
-								"comments",
-								"1"
+								"comments"
 							]
 						}
 					},

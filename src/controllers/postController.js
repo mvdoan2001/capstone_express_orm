@@ -88,7 +88,10 @@ const getComment = async (req, res) => {
     try {
         let { imageId } = req.params;
         let comment = await model.comments.findAll({
-            where: { image_id: imageId }
+            where: {
+                image_id: imageId
+            },
+            include: ['user']
         });
         responseApi(res, 200, comment, 'Thành công!')
     } catch (error) {
@@ -122,7 +125,7 @@ const saves = async (req, res) => {
                 })
                 responseApi(res, 200, '', 'Huỷ lưu thành công!')
                 return;
-            }else {
+            } else {
                 await model.saves.update(
                     { ...data, isSave: 1 }, {
                     where: {
@@ -148,8 +151,7 @@ const saves = async (req, res) => {
 
 const postComment = async (req, res) => {
     try {
-        let { imageId } = req.params;
-        let { content } = req.body;
+        let { content, imageId } = req.body;
         let { authorization } = req.headers;
         const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
@@ -168,8 +170,7 @@ const postComment = async (req, res) => {
 
 const putComment = async (req, res) => {
     try {
-        let { imageId } = req.params;
-        let { content } = req.body;
+        let { content, imageId } = req.body;
         let { authorization } = req.headers;
         const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
@@ -192,8 +193,7 @@ const putComment = async (req, res) => {
 
 const delComment = async (req, res) => {
     try {
-        let { imageId } = req.params;
-        let { content } = req.body;
+        let { content, imageId } = req.body;
         let { authorization } = req.headers;
         const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
@@ -220,7 +220,6 @@ const delComment = async (req, res) => {
         responseApi(res, 400, '', 'Xử lý không thành công!')
     }
 };
-
 
 export {
     getImages,

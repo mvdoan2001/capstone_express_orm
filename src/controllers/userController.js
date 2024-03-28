@@ -67,7 +67,8 @@ const login = async (req, res) => {
 
 const resetToken = async (req, res) => {
     try {
-        let { token } = req.headers;
+        let { authorization } = req.headers;
+        const token = authorization.replace("Bearer ", "");
         let { userId, key } = dataToken(token);
         let checkUser = await model.users.findOne({
             where: {
@@ -155,26 +156,6 @@ const changeInfo = async (req, res) => {
     }
 };
 
-const delUser = async (req, res) => {
-    try {
-        let { email } = req.body;
-        let data = await model.users.findOne({
-            where: { email }
-        });
-        if (data) {
-            await model.users.destroy({
-                where: { email }
-            })
-            responseApi(res, 200, '', 'Xoá thành công!')
-        } else {
-            responseApi(res, 400, '', 'Email không tồn tại!')
-        }
-    } catch (error) {
-        responseApi(res, 200, '', 'Xoá  thành công!')
-    }
-};
-
-
 const listImageSaveByUser = async (req, res) => {
     try {
         let { authorization } = req.headers;
@@ -216,7 +197,6 @@ export {
     register,
     resetToken,
     changePassword,
-    delUser,
     changeInfo,
     infoUser,
     listImageSaveByUser,

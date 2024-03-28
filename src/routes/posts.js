@@ -9,8 +9,8 @@ postRoute.get('/image/:imageId', infoOfImage)
 postRoute.delete('/image/:imageId', delImage)
 postRoute.get('/comments/:imageId', getComment)
 postRoute.post('/image/:imageId/save', saves)
-postRoute.post('/comments/:imageId', postComment)
-postRoute.put('/comments/:imageId', putComment)
-postRoute.delete('/comments/:imageId', delComment)
+postRoute.post('/comments', postComment)
+postRoute.put('/comments', putComment)
+postRoute.delete('/comments', delComment)
 
-export default postRoute;   
+export default postRoute;
