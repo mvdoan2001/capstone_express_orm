@@ -18,7 +18,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTM1Njc0ODgwMCwiaWF0IjoxNzExMzU2NzQ4LCJleHAiOjE3MTE0NDMxNDh9.d_rg4UIrmDAY2PqITCC_wAgUIrAKFAu_PHNusSaDSIs",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImtleSI6MTcxMTgwMTkyNDkzNiwiaWF0IjoxNzExODAxOTI0LCJleHAiOjE3MTE4ODgzMjR9.4Vlilsh9jUJn9eB5FFyrZfqAnLNhnxL5stsb7fx970U",
 									"type": "string"
 								}
 							]
@@ -58,7 +58,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\":\"nvba@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"raw": "{\r\n    \"email\":\"nva@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -145,7 +145,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTIzODY2MzA2MywiaWF0IjoxNzExMjM4NjYzLCJleHAiOjE3MTEzMjUwNjN9.zCM59zQaybeMcVDuP613XOQ6P0UXaM4U_SdVQ7JisuI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTgwMjg2NDA4OSwiaWF0IjoxNzExODAyODY0LCJleHAiOjE3MTE4ODkyNjR9.qkAa7tqPc8i89Z7HtTM4iF1gVD0hn_O8kdvY3lrw10I",
 									"type": "string"
 								}
 							]
@@ -154,7 +154,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"newPassword\":\"1234\"\n}",
+							"raw": "{\n    \"newPassword\":\"12345\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -178,17 +178,28 @@
 				{
 					"name": "change-info",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImtleSI6MTcxMTgwMTkyNDkzNiwiaWF0IjoxNzExODAxOTI0LCJleHAiOjE3MTE4ODgzMjR9.4Vlilsh9jUJn9eB5FFyrZfqAnLNhnxL5stsb7fx970U",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [
 							{
 								"key": "token",
 								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcwOTk5MjU4NzYwNCwiaWF0IjoxNzA5OTkyNTg3LCJleHAiOjE3MTAwNzg5ODd9.fHSRjpnhmRkN8Kr4sDttmoNmAs2Nhs9mtaM4ScLLMsA",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"userName\":\"Nguyễn Văn An\"\r\n}",
+							"raw": "{\r\n    \"userName\":\"Nguyễn Văn Ann\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -209,48 +220,6 @@
 					"response": []
 				},
 				{
-					"name": "del-user",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Successful DELETE request\", function () {",
-									"    pm.expect(pm.response.code).to.be.oneOf([200, 202, 204]);",
-									"});",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"nva@gmail.com\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{domain}}/user/deleteUser",
-							"host": [
-								"{{domain}}"
-							],
-							"path": [
-								"user",
-								"deleteUser"
-							]
-						},
-						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
-					},
-					"response": []
-				},
-				{
 					"name": "list-save",
 					"request": {
 						"auth": {
@@ -258,7 +227,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImtleSI6MTcxMTU1MTY5MDIzNywiaWF0IjoxNzExNTUxNjkwLCJleHAiOjE3MTE2MzgwOTB9.-Ty_UyIecJAOLJx7eUJvmP90pzAxgJWuUiYnRAN3mPg",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTgwMjg2NDA4OSwiaWF0IjoxNzExODAyODY0LCJleHAiOjE3MTE4ODkyNjR9.qkAa7tqPc8i89Z7HtTM4iF1gVD0hn_O8kdvY3lrw10I",
 									"type": "string"
 								}
 							]
@@ -286,7 +255,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTM1Mjc3MDA2MSwiaWF0IjoxNzExMzUyNzcwLCJleHAiOjE3MTE0MzkxNzB9.1Xor3NC7v-hqwUZh4glctAY5y3qW__9WoaK921zeMG4",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTgwMjg2NDA4OSwiaWF0IjoxNzExODAyODY0LCJleHAiOjE3MTE4ODkyNjR9.qkAa7tqPc8i89Z7HtTM4iF1gVD0hn_O8kdvY3lrw10I",
 									"type": "string"
 								}
 							]
@@ -339,7 +308,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"d\"\r\n}",
+							"raw": "{\r\n    \"name\":\"v\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -386,7 +355,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTIzODY2MzA2MywiaWF0IjoxNzExMjM4NjYzLCJleHAiOjE3MTEzMjUwNjN9.zCM59zQaybeMcVDuP613XOQ6P0UXaM4U_SdVQ7JisuI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTgwMjg2NDA4OSwiaWF0IjoxNzExODAyODY0LCJleHAiOjE3MTE4ODkyNjR9.qkAa7tqPc8i89Z7HtTM4iF1gVD0hn_O8kdvY3lrw10I",
 									"type": "string"
 								}
 							]
@@ -419,17 +388,27 @@
 				{
 					"name": "get-comment",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTgwMjg2NDA4OSwiaWF0IjoxNzExODAyODY0LCJleHAiOjE3MTE4ODkyNjR9.qkAa7tqPc8i89Z7HtTM4iF1gVD0hn_O8kdvY3lrw10I",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/post/comments/1",
+							"raw": "{{domain}}/post/comments/2",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"post",
 								"comments",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -443,7 +422,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTIzODY2MzA2MywiaWF0IjoxNzExMjM4NjYzLCJleHAiOjE3MTEzMjUwNjN9.zCM59zQaybeMcVDuP613XOQ6P0UXaM4U_SdVQ7JisuI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImtleSI6MTcxMTgwMTkyNDkzNiwiaWF0IjoxNzExODAxOTI0LCJleHAiOjE3MTE4ODgzMjR9.4Vlilsh9jUJn9eB5FFyrZfqAnLNhnxL5stsb7fx970U",
 									"type": "string"
 								}
 							]
@@ -473,7 +452,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsImtleSI6MTcxMTU2NDY4MTcwMiwiaWF0IjoxNzExNTY0NjgxLCJleHAiOjE3MTE2NTEwODF9.-dEDVTEgUNkfKTO95UNyW66PpWUyxJdiYIjbWVpxz4o",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImtleSI6MTcxMTgwMTkyNDkzNiwiaWF0IjoxNzExODAxOTI0LCJleHAiOjE3MTE4ODgzMjR9.4Vlilsh9jUJn9eB5FFyrZfqAnLNhnxL5stsb7fx970U",
 									"type": "string"
 								}
 							]
@@ -482,7 +461,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"cac\",\r\n    \"imageId\": \"1\"\r\n}",
+							"raw": "{\r\n    \"content\": \"cmt\",\r\n    \"imageId\": \"2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -505,17 +484,21 @@
 				{
 					"name": "put-comment",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImtleSI6MTcxMTgwMTkyNDkzNiwiaWF0IjoxNzExODAxOTI0LCJleHAiOjE3MTE4ODgzMjR9.4Vlilsh9jUJn9eB5FFyrZfqAnLNhnxL5stsb7fx970U",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
-						"header": [
-							{
-								"key": "token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTIzODY2MzA2MywiaWF0IjoxNzExMjM4NjYzLCJleHAiOjE3MTEzMjUwNjN9.zCM59zQaybeMcVDuP613XOQ6P0UXaM4U_SdVQ7JisuI",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\": \"put content\",\r\n    \"imageId\": \"1\"\r\n}",
+							"raw": "{\r\n    \"content\": \"put content\",\r\n    \"imageId\": \"2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -523,14 +506,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/post/comments/1",
+							"raw": "{{domain}}/post/comments",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"post",
-								"comments",
-								"1"
+								"comments"
 							]
 						}
 					},
@@ -544,7 +526,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMTIzODY2MzA2MywiaWF0IjoxNzExMjM4NjYzLCJleHAiOjE3MTEzMjUwNjN9.zCM59zQaybeMcVDuP613XOQ6P0UXaM4U_SdVQ7JisuI",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImtleSI6MTcxMTgwMTkyNDkzNiwiaWF0IjoxNzExODAxOTI0LCJleHAiOjE3MTE4ODgzMjR9.4Vlilsh9jUJn9eB5FFyrZfqAnLNhnxL5stsb7fx970U",
 									"type": "string"
 								}
 							]
@@ -553,7 +535,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\":\"test\",\r\n    \"imageId\": \"1\"\r\n}",
+							"raw": "{\r\n    \"content\":\"put content\",\r\n    \"imageId\": \"2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -600,11 +582,11 @@
 									"key": "image",
 									"contentType": "Ảnh đẹp quá",
 									"type": "file",
-									"src": "/F:/Sales PC/Saved Pictures/vp.jpg"
+									"src": "/F:/Sales PC/Saved Pictures/sd.jpg"
 								},
 								{
 									"key": "description",
-									"value": "máy tính văn phòng",
+									"value": "màn kv",
 									"type": "text"
 								}
 							]
