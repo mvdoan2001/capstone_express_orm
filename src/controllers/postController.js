@@ -66,7 +66,12 @@ const delImage = async (req, res) => {
                 user_id: userId
             }
         });
+
         if (image) {
+            if (image.dataValues.isDelete) {
+                responseApi(res, 200, '', 'Không tìm thấy ảnh này!')
+                return
+            }
             await model.images.update(
                 { ...image, isDelete: 1 }, {
                 where: {
@@ -76,6 +81,7 @@ const delImage = async (req, res) => {
             responseApi(res, 200, '', 'Xoá ảnh thành công!')
             return
         };
+
         responseApi(res, 200, '', 'Người dùng không tạo ảnh này!')
     } catch (error) {
         console.log(error);
@@ -193,15 +199,14 @@ const putComment = async (req, res) => {
 
 const delComment = async (req, res) => {
     try {
-        let { content, imageId } = req.body;
+        let { commentId } = req.params;
         let { authorization } = req.headers;
         const token = authorization.replace("Bearer ", "");
         let { userId } = dataToken(token);
         let comment = await model.comments.findOne({
             where: {
-                image_id: imageId,
+                comment_id: commentId,
                 user_id: userId,
-                content
             }
         });
         if (comment) {

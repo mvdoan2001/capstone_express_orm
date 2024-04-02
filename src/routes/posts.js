@@ -11,6 +11,6 @@ postRoute.get('/comments/:imageId', getComment)
 postRoute.post('/image/:imageId/save', saves)
 postRoute.post('/comments', postComment)
 postRoute.put('/comments', putComment)
-postRoute.delete('/comments', delComment)
+postRoute.delete('/comments/:commentId', delComment)
 
 export default postRoute;

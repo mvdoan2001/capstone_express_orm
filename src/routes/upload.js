@@ -16,8 +16,7 @@ const upload = multer({ storage })
 
 uploadRoute.post('', upload.single('image'), async (req, res) => {
     try {
-        let { file } = req;
-        console.log(req.body)
+        let { file } = req; 
         let { description } = req.body;
         let { authorization } = req.headers;
         const token = authorization.replace("Bearer ", "");

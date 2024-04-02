@@ -526,7 +526,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImtleSI6MTcxMTgwMTkyNDkzNiwiaWF0IjoxNzExODAxOTI0LCJleHAiOjE3MTE4ODgzMjR9.4Vlilsh9jUJn9eB5FFyrZfqAnLNhnxL5stsb7fx970U",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImtleSI6MTcxMjA0ODQzNjc0MywiaWF0IjoxNzEyMDQ4NDM2LCJleHAiOjE3MTIxMzQ4MzZ9.UJEK1WTQBmpudr6OchaqxaQHlD8MDi9zNLQCWB3oTUQ",
 									"type": "string"
 								}
 							]
@@ -535,7 +535,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"content\":\"put content\",\r\n    \"imageId\": \"2\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -543,13 +543,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/post/comments",
+							"raw": "{{domain}}/post/comments/22",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"post",
-								"comments"
+								"comments",
+								"22"
 							]
 						}
 					},
